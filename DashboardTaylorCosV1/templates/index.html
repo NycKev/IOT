@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Taylor y Fibonacci</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Dashboard en Tiempo Real</h1>
+
+    <h2>Gráfico de Taylor</h2>
+    <div id="grafico_taylor"></div>
+
+    <h2>Gráfico de Fibonacci</h2>
+    <div id="grafico_fibonacci"></div>
+
+    <script>
+        function actualizarTaylor() {
+            fetch('/datos_taylor')
+                .then(response => response.json())
+                .then(data => {
+                    var figura = JSON.parse(data);
+                    Plotly.react('grafico_taylor', figura.data, figura.layout);
+                })
+                .catch(error => console.error('Error al actualizar Taylor:', error));
+        }
+
+        function actualizarFibonacci() {
+            fetch('/datos_fibonacci')
+                .then(response => response.json())
+                .then(data => {
+                    var figura = JSON.parse(data);
+                    Plotly.react('grafico_fibonacci', figura.data, figura.layout);
+                })
+                .catch(error => console.error('Error al actualizar Fibonacci:', error));
+        }
+
+        setInterval(actualizarTaylor, 2000);
+        setInterval(actualizarFibonacci, 2000);
+
+        actualizarTaylor();
+        actualizarFibonacci();
+    </script>
+</body>
+</html>
