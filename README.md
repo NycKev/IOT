@@ -162,7 +162,6 @@ Si deseas contribuir, sigue estos pasos:
 ## **📌 Contacto y Enlace del Repositorio**
 Repositorio en GitHub: **[https://github.com/tu_usuario/proyecto_series_matematicas](https://github.com/tu_usuario/proyecto_series_matematicas)**
 
-📩 Para dudas o soporte, contactar a: **pamela.valenzuela.f@ucb.edu.bo**
 
 ---
 
